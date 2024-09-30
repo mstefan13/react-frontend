@@ -1,0 +1,16 @@
+services:
+    react-front:
+        container_name: 'react-front'
+        build:
+            context: ./
+            dockerfile: docker/react.docker
+        ports:
+            - '9000:8080'
+        networks:
+            - react-front
+        volumes:
+            - ./:/var/www
+
+networks:
+    react-front:
+        external: true
